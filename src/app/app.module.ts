@@ -17,6 +17,9 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { HttpComponent } from './httpClient/http-client.component';
 import { MyInterceptor, RemoveLastItemInterceptor } from './httpClient/interceptor.service';
 import { TempleteDrivenFormComponent } from './templete-driven-form/templete-driven-form.component';
+import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
+
+
 
 @NgModule({
   declarations: [
@@ -31,7 +34,8 @@ import { TempleteDrivenFormComponent } from './templete-driven-form/templete-dri
     StructuralDirectiveComponent,
     ObservablesComponent,
     HttpComponent,
-    TempleteDrivenFormComponent
+    TempleteDrivenFormComponent,
+    ReactiveFormComponent
   ],
   imports: [
     BrowserModule,

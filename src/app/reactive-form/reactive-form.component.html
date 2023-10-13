@@ -1,0 +1,89 @@
+<div class="container">
+  <!-- Form Group -->
+  <h1>Form Group</h1>
+  <form [formGroup]="profileForm" (ngSubmit)="onSubmit(profileForm)">
+    <p>Value: {{ profileForm.value | json }}</p>
+    <h4>Form Status: {{ profileForm.status }}</h4>
+    <div>
+      <label for="firstName">First Name:</label>
+      <input type="text" id="firstName" formControlName="firstName">
+      <div class="alert alert-danger" *ngIf="profileForm.get('firstName')?.hasError('required') && profileForm.get('firstName')?.touched">
+        First Name is required.
+      </div>
+      <div class="alert alert-danger" *ngIf="profileForm.get('firstName')?.hasError('minlength') && profileForm.get('firstName')?.touched">
+        First Name must be at least 3 characters.
+      </div>
+    </div> <br>
+
+    <div>
+      <label for="email">Email: </label>
+      <input id="email" type="text" formControlName="email">
+      <div class="alert alert-danger" *ngIf="profileForm.get('email')?.hasError('required') && profileForm.get('email')?.touched">
+        Email is required.
+      </div>
+      <div class="alert alert-danger" *ngIf="profileForm.get('email')?.hasError('email') && profileForm.get('email')?.touched">
+        Not match email templete
+      </div>
+    </div> <br>
+
+    <!-- Child group form  -->
+    <div formGroupName="address">
+      <h4>Address</h4>
+
+      <label for="street">Street: </label>
+      <input id="street" type="text" formControlName="street">
+
+      <label for="city">City: </label>
+      <input id="city" type="text" formControlName="city">
+
+      <label for="state">State: </label>
+      <input id="state" type="text" formControlName="state">
+
+      <label for="zip">Zip Code: </label>
+      <input id="zip" type="text" formControlName="zip">
+    </div>
+
+    <br><br>
+    <p>Complete the form and submit button</p>
+    <button [disabled]="!profileForm.valid" type="submit">Submit</button>
+  </form>
+
+  <br><br><br>
+  <h1>FormBuilder service</h1>
+  <p>Value: {{ profileFormBuilder.value | json }}</p>
+  <form [formGroup]="profileFormBuilder" (ngSubmit)="onSubmitFormBuilder(profileFormBuilder)">
+    <div formArrayName="aliases">
+      <h2>Aliases</h2>
+      <button type="button" (click)="addAlias()">+ Add another alias</button><br>
+
+      <div *ngFor="let alias of aliases.controls; let i=index">
+        <!-- The repeated alias template -->
+        <label for="alias-{{ i }}">Alias:</label>
+        <input id="alias-{{ i }}" type="text" [formControlName]="i">
+      </div>
+    </div> <br>
+
+    <div>
+      <label for="country">Country:</label>
+      <select id="country" formControlName="country">
+        <option value="" disabled>Select a country</option>
+        <option *ngFor="let country of countries" [value]="country">{{ country }}</option>
+      </select>
+      <div *ngIf="profileForm.get('country')?.hasError('required') && profileForm.get('country')?.touched">
+        Please select a country.
+      </div>
+    </div><br>
+
+    <div>
+      <label for="villages">Select Villages:</label>
+      <select id="villages" formControlName="villages" multiple>
+        <option *ngFor="let village of villages" [value]="village">{{ village }}</option>
+      </select>
+      <div *ngIf="profileForm.get('villages')?.hasError('required') && profileForm.get('villages')?.touched">
+        Please select at least one villages.
+      </div>
+    </div><br><br>
+
+    <button type="submit">Submit FormBuilder</button>
+  </form>
+</div>

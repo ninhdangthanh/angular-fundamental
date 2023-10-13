@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-root',
   template: `
-    <app-templete-driven-form></app-templete-driven-form>
+    <app-reactive-form></app-reactive-form>
   `
 })
 export class AppComponent implements OnInit {
