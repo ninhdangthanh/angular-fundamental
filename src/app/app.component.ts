@@ -1,10 +1,23 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  template: `
+    <app-templete-driven-form></app-templete-driven-form>
+  `
 })
-export class AppComponent {
-  title = 'first-angular-app';
+export class AppComponent implements OnInit {
+
+  firstExample = 'bob';
+
+  items = [
+    "ninh",
+    "ha",
+    "khuong"
+  ]
+
+  ngOnInit(): void {
+
+  }
+
 }

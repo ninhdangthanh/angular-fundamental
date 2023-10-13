@@ -1,0 +1,33 @@
+<h1>OBSERVABLES TOPIC</h1>
+
+<h2>ObservableData$</h2>
+<ul>
+  <li >{{ observableData$ | async }}</li>
+</ul>
+<br><br>
+
+
+<button (click)="createObservableNew()" type="button">Create Observable with NEW</button><br>
+<button (click)="createObservableFrom()" type="button">Create Observable with FROM</button><br>
+<button (click)="createObservableAPI()" type="button">Create Observable to fetch API</button><br>
+
+<br><br><br>
+<h2>Pipe Observable Transform Async</h2>
+<!-- <h1>Data: {{data[7].name}}</h1> -->
+<button (click)="createListAPIWithPipeAndObservable()" type="button">Observable to fetch API and transform with Pipe</button><br>
+<div *ngIf="observable | async as obdata">
+  <ul>
+    <li *ngFor="let item of obdata">{{ item.name }}</li>
+  </ul>
+</div>
+
+<h2>Pipe Observable Transform Async</h2>
+<div *ngIf="data">
+  <ul>
+    <li *ngFor="let item of data">{{ item.name + " === " + item.id }}</li>
+  </ul>
+</div>
+
+<h2>Thông báo</h2>
+<p>{{ notificationMessage$ | async }}</p>
+<button (click)="showNotification()">show notification</button>

@@ -1,0 +1,12 @@
+/* styles.css */
+.highlighted {
+  background-color: yellow;
+  color: black;
+  font-weight: bold;
+}
+
+.normal {
+  background-color: white;
+  color: black;
+  font-weight: normal;
+}

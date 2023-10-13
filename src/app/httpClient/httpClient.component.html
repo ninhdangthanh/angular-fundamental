@@ -1,0 +1,30 @@
+<h1>GET</h1>
+<div *ngIf="productData">
+  <!-- Render data here -->
+  <ul>
+    <li *ngFor="let item of productData">{{ "id: " + item.id + " ) " + item.name + " === " + item.price }}</li>
+  </ul>
+</div><br><br>
+
+<h1>POST</h1>
+<button (click)="postDataToMock()">Post Data</button>
+<div *ngIf="postResponse">
+  <p>{{postResponse.name}}</p>
+  <p>{{postResponse.description}}</p>
+  <p>{{postResponse.price}}</p>
+</div>
+<br><br>
+
+<h1>PUT</h1>
+<button (click)="putDataToMock()">Put Data</button>
+<div *ngIf="putResponse">
+  <p>{{putResponse.name}}</p>
+  <p>{{putResponse.description}}</p>
+  <p>{{putResponse.price}}</p>
+</div>
+
+<h1>DELETE</h1>
+<input type="number" [(ngModel)]="deleteId">
+<button (click)="deleteDataFromMock()">Delete Data</button>
+
+

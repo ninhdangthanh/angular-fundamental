@@ -1,0 +1,39 @@
+<h1>Structure Directive</h1>
+
+<div *ngIf="isLoggedIn">
+  <h1>Hello Ninh!</h1>
+</div>
+
+<button (click)="isLoggedIn = !isLoggedIn">{{isLoggedIn ? "log out" : "login"}} - ngIf</button>
+<br><br>
+
+<ul>
+  <li *ngFor="let item of items, let i = index">{{i}} --- {{item}}</li>
+</ul>
+<br><br>
+
+<div>
+  <label for="itemSelect">Select an item:</label>
+  <select id="itemSelect" (change)="onSelectionChange($event)">
+    <option value="">Select an item</option>
+    <option *ngFor="let item of itemsFor" [value]="item.id">{{ item.title }}</option>
+  </select>
+</div>
+
+<div *ngIf="selectedItemId">
+  <p>You selected: {{ selectedItemTitle }}</p>
+</div>
+<br><br><br>
+
+
+<div [ngClass]="{'highlighted': isHighlighted, 'normal': !isHighlighted}">
+  This is a div with dynamic styling. [ng Class]
+</div>
+<button (click)="toggleHighlight()">Toggle ng Class</button>
+<br><br><br>
+
+<div [ngStyle]="isStyle ? customStyles : {}">
+  This is a div with dynamic styling. [ng Style]
+</div>
+<button (click)="toggleStyle()">Toggle ng Style</button>
+<br><br><br>

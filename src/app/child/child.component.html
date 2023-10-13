@@ -1,0 +1,11 @@
+<h2>{{childMessage}}</h2>
+<button type="button" (click)="sendMessage()">Save</button>
+
+<h2 class="{{childMessage}}">h2</h2>
+<h2 class="{{childMessage}}">h3</h2>
+
+<input type="text" value="property reference variables" #myInput>
+<button (click)="onChange()">Oke</button>
+<br /> <br> <br>
+<input type="text" [(ngModel)]="fullname">
+<h1>{{fullname}}</h1>

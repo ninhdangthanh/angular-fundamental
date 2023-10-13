@@ -1,0 +1,10 @@
+<!-- <app-child [childMessage]="'Hello World!!!!'"></app-child> -->
+<h1>Parent component</h1>
+<app-child childMessage="'Hello 1'" (messageEvent)="receiveMessage($event)"></app-child>
+<br>
+<button (click)="sendMyService()">parent button</button>
+<br>
+<button (click)="changeName()">change name</button>
+<br> <br>
+<div myDirective>This text will be highlighted when you hover over it.</div>
+<p>{{ 10 | intToDouble }}</p>
